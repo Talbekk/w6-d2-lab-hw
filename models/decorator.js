@@ -1,10 +1,14 @@
 const Decorator = function() {
-  this.paintStock = 10;
+  this.paintStock = [];
 }
 
 
 Decorator.prototype.addPaintCan = function (amount) {
   this.paintStock += amount;
+}
+
+Decorator.prototype.numberOfPaintCans = function () {
+  return this.paintStock.length;
 }
 
 Decorator.prototype.enoughPaint = function (area) {
