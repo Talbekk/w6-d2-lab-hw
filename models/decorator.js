@@ -27,14 +27,11 @@ Decorator.prototype.enoughPaintForRoom = function (area, total_paint) {
   }
 }
 
-Decorator.prototype.enoughPaint = function (area) {
-  if ( this.paintStock >= area){
-    return true;
-  }
-    else {
-      return false;
+Decorator.prototype.paintRoomIfEnoughStock = function (area, total_paint, room) {
+    if (total_paint >= area) {
+      room.getPainted();
     }
-}
+};
 
 
 
