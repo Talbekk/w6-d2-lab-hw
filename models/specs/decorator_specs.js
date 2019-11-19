@@ -6,6 +6,7 @@ const Paint = require('../paint.js');
 describe('Decorator', function () {
 
   let decorator;
+  let paintCan;
 
   beforeEach(function () {
     decorator = new Decorator();
@@ -21,8 +22,15 @@ describe('Decorator', function () {
       assert.strictEqual(actual, 0);
     });
     it('should be able to add a can of paint', function () {
-      decorator.addPaintCan()
+      decorator.addPaintCan(paintCan);
+      const actual = decorator.numberOfPaintCans();
+      assert.strictEqual(actual, 1);
     });
+    it('should return how much paint there is', function() {
+      decorator.addPaintCan(paintCan);
+      const actual = decorator.totalLitresOfPaint();
+      assert.strictEqual(actual, 10);
+    })
   });
 
 

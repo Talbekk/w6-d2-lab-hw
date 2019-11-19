@@ -3,12 +3,20 @@ const Decorator = function() {
 }
 
 
-Decorator.prototype.addPaintCan = function (amount) {
-  this.paintStock += amount;
+Decorator.prototype.addPaintCan = function (paint) {
+  this.paintStock.push(paint);
 }
 
 Decorator.prototype.numberOfPaintCans = function () {
   return this.paintStock.length;
+}
+
+Decorator.prototype.totalLitresOfPaint = function () {
+  let total = 0;
+  for (let currentPaint of this.paintStock) {
+    total += currentPaint.amount;
+  }
+  return total;
 }
 
 Decorator.prototype.enoughPaint = function (area) {
