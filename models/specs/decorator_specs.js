@@ -20,16 +20,17 @@ describe('Decorator', function () {
     assert.strictEqual(actual, 11);
   });
   it('should have enough paint for the room', function () {
-    const room = new Room(10, false);
+    const room = new Room(10);
     const room_space = room.area;
     const actual = decorator.enoughPaint(room_space);
     assert.strictEqual(actual, true);
   });
   it('should be able to paint the room', function () {
-    const room = new Room(10, false);
+    const room = new Room(10);
     const room_space = room.area;
     room.getPainted();
     const actual = room.painted;
     assert.strictEqual(actual, true);
   });
+
 });
