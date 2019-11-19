@@ -19,6 +19,14 @@ Decorator.prototype.totalLitresOfPaint = function () {
   return total;
 }
 
+Decorator.prototype.enoughPaintForRoom = function (area, total_paint) {
+  if (total_paint >= area){
+    return true;
+  } else {
+    return false;
+  }
+}
+
 Decorator.prototype.enoughPaint = function (area) {
   if ( this.paintStock >= area){
     return true;

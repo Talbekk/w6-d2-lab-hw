@@ -7,10 +7,12 @@ describe('Decorator', function () {
 
   let decorator;
   let paintCan;
+  let room;
 
   beforeEach(function () {
     decorator = new Decorator();
     paintCan = new Paint(10);
+    room = new Room(10);
   });
   describe('paintStock', function () {
     it('should start with no cans of paint', function () {
@@ -28,9 +30,17 @@ describe('Decorator', function () {
     });
     it('should return how much paint there is', function() {
       decorator.addPaintCan(paintCan);
+      decorator.addPaintCan(paintCan);
       const actual = decorator.totalLitresOfPaint();
-      assert.strictEqual(actual, 10);
-    })
+      assert.deepStrictEqual(actual, 20);
+    });
+    it('should be able to check if there is enough paint for a room', function() {
+      decorator.addPaintCan(paintCan);
+      decorator.addPaintCan(paintCan);
+      const room_space = room.area;
+      const total_paint = decorator.totalLitresOfPaint(); const actual = decorator.enoughPaintForRoom(room_space, total_paint);
+      assert.deepStrictEqual(actual, true);
+    });
   });
 
 
